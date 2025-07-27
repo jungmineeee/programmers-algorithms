@@ -9,13 +9,13 @@ bool solution(vector<string> phone_book){
     bool answer = true;
     sort(phone_book.begin(), phone_book.end()); // 정렬먼저
     for(int i = 0; i < phone_book.size();i++){
-        for(int j = i+1; j < phone_book.size(); j++)
-        
-        if(phone_book[i+1].find(phone_book[i]) != string::npos){answer = false;}
-        else{answer = true;}
-
+        if(phone_book[i+1].find(phone_book[i]) == 0){ // 조건문 변경
+        // 기존: != npose --> 위치 상관없이 들어 있기만 하냐
+        // 변경후: == 0  --> 접두어 위치인지.
+            return false;
+        }
     }    
-    return answer;
+    return true;
 }
 
 int main(){
